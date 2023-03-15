@@ -79,7 +79,7 @@ export const GeneratorKeyboard: FC<Props> = ({ setPasswordValue }) => {
             Include Symbols
           </Checkbox>
         </div>
-        <Strength current={strength} handleChange={setStrength} />
+        <Strength current={strength} />
         <Button onClick={() => handleGeneratePassword()}>
           Generate <ArrowIcon />
         </Button>
