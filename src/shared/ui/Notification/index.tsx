@@ -26,17 +26,18 @@ export const Notification: FC<Props> = ({
 
   return createPortal(
     <motion.div
-      className="fixed bg-zinc-800 text-white left-1/2 -translate-x-1/2 rounded-md py-3 px-4 flex gap-2"
+      className="fixed bg-zinc-800 text-white left-1/2 -translate-x-1/2 rounded-md py-3 px-4 flex gap-2 shadow-2xl"
       initial={{ top: -200 }}
       animate={{ top: 10 }}
       exit={{ top: -200 }}
+      style={{ width: "100%", maxWidth: "540px" }}
     >
       {type === "notification" ? (
-        <div className="w-6 h-6 flex items-center justify-center bg-green-300 rounded-full text-black">
+        <div className="w-6 h-6 flex shrink-0 items-center justify-center bg-green-300 rounded-full text-black">
           <CheckIcon />
         </div>
       ) : (
-        <div className="w-6 h-6 flex items-center justify-center bg-red-300 rounded-full text-black font-bold">
+        <div className="w-6 h-6 shrink-0 flex items-center justify-center bg-red-300 rounded-full text-black font-bold">
           !
         </div>
       )}
