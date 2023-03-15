@@ -1,15 +1,18 @@
 import React, { FC, useEffect, useState } from "react";
-import { Checkbox, Range, ArrowIcon } from "@/shared/ui";
+import { Checkbox, Range, ArrowIcon, Notification } from "@/shared/ui";
 import { Button } from "@/shared/ui/Button";
 import { passwordGenerate } from "@/widgets/Generator/utils/passwordGenerate";
 import { Strength } from "../Strength";
 import { getStrength } from "@/widgets/Generator/utils/getStrength";
+import { AnimatePresence } from "framer-motion";
 
 interface Props {
   setPasswordValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const GeneratorKeyboard: FC<Props> = ({ setPasswordValue }) => {
+  const [showNotification, setShowNotification] = useState<boolean>(false);
+
   const [passwordLength, setPasswordLength] = useState<number[]>([1]);
 
   const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
@@ -31,15 +34,24 @@ export const GeneratorKeyboard: FC<Props> = ({ setPasswordValue }) => {
   }, [includeUppercase, includeLowercase, includeNumbers, includeSymbols]);
 
   const handleGeneratePassword = () => {
-    setPasswordValue(
-      passwordGenerate({
-        length: passwordLength[0],
-        uppercase: includeUppercase,
-        lowercase: includeLowercase,
-        withNumbers: includeNumbers,
-        withSymbols: includeSymbols,
-      })
-    );
+    if (
+      includeUppercase ||
+      includeLowercase ||
+      includeNumbers ||
+      includeSymbols
+    ) {
+      setPasswordValue(
+        passwordGenerate({
+          length: passwordLength[0],
+          uppercase: includeUppercase,
+          lowercase: includeLowercase,
+          withNumbers: includeNumbers,
+          withSymbols: includeSymbols,
+        })
+      );
+    } else {
+      setShowNotification(true);
+    }
   };
 
   return (
@@ -84,6 +96,15 @@ export const GeneratorKeyboard: FC<Props> = ({ setPasswordValue }) => {
           Generate <ArrowIcon />
         </Button>
       </div>
+      <AnimatePresence>
+        {showNotification && (
+          <Notification
+            type="error"
+            onShown={setShowNotification}
+            text="Выберите используемые символы"
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 };

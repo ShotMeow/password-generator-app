@@ -12,10 +12,6 @@ export const GeneratorField: FC<Props> = ({ inputValue }) => {
     event.preventDefault();
     navigator.clipboard.writeText(inputValue).then(() => {
       setShowNotification(true);
-
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 3000);
     });
   };
 
@@ -34,7 +30,10 @@ export const GeneratorField: FC<Props> = ({ inputValue }) => {
       </div>
       <AnimatePresence>
         {showNotification && (
-          <Notification text="Пароль скопирован в буфер обмена" />
+          <Notification
+            onShown={setShowNotification}
+            text="Пароль скопирован в буфер обмена"
+          />
         )}
       </AnimatePresence>
     </>
