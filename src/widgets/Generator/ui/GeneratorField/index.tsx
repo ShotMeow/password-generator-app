@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
-import { CopyIcon, Field, Notification } from "@/shared/ui";
 import { AnimatePresence, motion } from "framer-motion";
+
+import { CopyIcon, Field, Notification } from "@/shared/ui";
 
 interface Props {
   inputValue: string;
@@ -18,10 +19,10 @@ export const GeneratorField: FC<Props> = ({ inputValue }) => {
   return (
     <>
       <div className="relative">
-        <Field className="cursor-pointer" value={inputValue} disabled />
+        <Field className="cursor-pointer pr-16" value={inputValue} disabled />
         <motion.button
           onClick={(event) => onCopyToClipboard(event)}
-          className="absolute right-5 top-5"
+          className="absolute right-5 top-5 text-green-300 hover:text-white"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
         >

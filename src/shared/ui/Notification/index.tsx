@@ -1,7 +1,8 @@
 import React, { FC, useEffect } from "react";
-import { CheckIcon } from "../Icons/Check";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
+
+import { CheckIcon } from "../Icons/Check";
 
 interface Props {
   type?: "error" | "notification";
@@ -30,7 +31,7 @@ export const Notification: FC<Props> = ({
       initial={{ top: -200 }}
       animate={{ top: 10 }}
       exit={{ top: -200 }}
-      style={{ width: "100%", maxWidth: "540px" }}
+      style={{ width: "90%", maxWidth: "540px" }}
     >
       {type === "notification" ? (
         <div className="w-6 h-6 flex shrink-0 items-center justify-center bg-green-300 rounded-full text-black">

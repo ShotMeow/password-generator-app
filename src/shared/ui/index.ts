@@ -4,3 +4,4 @@ export { Checkbox } from "./Checkbox";
 export { Range } from "./Range";
 export { ArrowIcon } from "./Icons/Arrow";
 export { Notification } from "./Notification";
+export { Button } from "./Button";

@@ -1,14 +1,11 @@
 export const getStrengthDescription = (index: number) => {
-  switch (index) {
-    case 1:
-      return "Easy";
-    case 2:
-      return "Medium";
-    case 3:
-      return "Hard";
-    case 4:
-      return "Insane";
-    default:
-      break;
+  if (index >= 4) {
+    return "Insane";
+  } else if (index >= 3) {
+    return "Hard";
+  } else if (index >= 2) {
+    return "Medium";
+  } else if (index >= 1) {
+    return "Easy";
   }
 };

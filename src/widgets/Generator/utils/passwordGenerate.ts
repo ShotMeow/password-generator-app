@@ -3,7 +3,7 @@ import {
   numbers,
   symbols,
   uppercaseLetters,
-} from "@/widgets/Generator/utils/symbols";
+} from "./symbols";
 
 interface PasswordGenerateTypes {
   length: number;

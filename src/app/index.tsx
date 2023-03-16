@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Generator } from "@/widgets/Generator/ui/Generator";
+
+import { Generator } from "@/widgets/Generator";
 
 export const App: FC = () => {
   return (

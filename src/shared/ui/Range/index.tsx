@@ -41,7 +41,7 @@ export const Range: FC<Props> = ({ min, max, onChangeRange, values }) => {
       renderThumb={({ props, isDragged }) => (
         <div
           {...props}
-          className={`w-6 h-6 rounded-full focus:outline-none focus:bg-zinc-800 focus:border-2 border-green-300 ${
+          className={`w-6 h-6 rounded-full focus:outline-none focus:bg-zinc-800  focus:border-2 border-green-300 ${
             isDragged ? "bg-zinc-800 border-2" : "bg-white"
           }`}
         />

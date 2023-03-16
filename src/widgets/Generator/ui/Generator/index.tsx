@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 
-import { GeneratorField } from "@/widgets/Generator/ui/GeneratorField";
-import { GeneratorKeyboard } from "@/widgets/Generator/ui/GeneratorKeyboard";
+import { GeneratorField } from "../GeneratorField";
+import { GeneratorKeyboard } from "../GeneratorKeyboard";
 
 export const Generator: FC = () => {
   const [passwordValue, setPasswordValue] = useState<string>("");

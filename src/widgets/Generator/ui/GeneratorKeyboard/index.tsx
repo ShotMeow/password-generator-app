@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-import { Checkbox, Range, ArrowIcon, Notification } from "@/shared/ui";
-import { Button } from "@/shared/ui/Button";
-import { passwordGenerate } from "@/widgets/Generator/utils/passwordGenerate";
-import { Strength } from "../Strength";
-import { getStrength } from "@/widgets/Generator/utils/getStrength";
 import { AnimatePresence } from "framer-motion";
+
+import { Checkbox, Range, ArrowIcon, Notification, Button } from "@/shared/ui";
+import { passwordGenerate } from "../../utils/passwordGenerate";
+import { getStrength } from "../../utils/getStrength";
+import { Strength } from "../Strength";
 
 interface Props {
   setPasswordValue: React.Dispatch<React.SetStateAction<string>>;
@@ -25,13 +25,20 @@ export const GeneratorKeyboard: FC<Props> = ({ setPasswordValue }) => {
   useEffect(() => {
     setStrength(
       getStrength(
+        passwordLength[0],
         includeUppercase,
         includeLowercase,
         includeNumbers,
         includeSymbols
       )
     );
-  }, [includeUppercase, includeLowercase, includeNumbers, includeSymbols]);
+  }, [
+    includeUppercase,
+    includeLowercase,
+    includeNumbers,
+    includeSymbols,
+    passwordLength,
+  ]);
 
   const handleGeneratePassword = () => {
     if (

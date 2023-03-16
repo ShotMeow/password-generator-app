@@ -1,5 +1,6 @@
 import React, { FC, PropsWithChildren } from "react";
-import { CheckIcon } from "@/shared/ui/Icons/Check";
+
+import { CheckIcon } from "../Icons/Check";
 
 interface Props {
   isActive: boolean;
